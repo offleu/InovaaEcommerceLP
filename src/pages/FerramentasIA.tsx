@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { InovaaButton } from "@/components/ui/inovaa-button";
-import { Bot, Zap, MessageSquare, Settings, Brain, Workflow } from "lucide-react";
+import { Bot, Zap, MessageSquare, Settings, Brain, Workflow, Cpu, Users, ShoppingCart, BarChart3, Headphones, FileText, Cog } from "lucide-react";
 
 const FerramentasIA = () => {
   return (
@@ -137,6 +137,114 @@ const FerramentasIA = () => {
                     <li>• Envio de notificações</li>
                     <li>• Relatórios automatizados</li>
                     <li>• Integração de sistemas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Agentes de IA */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text-dark">
+                  Agentes de IA para Automatizar Setores
+                </h2>
+                <p className="text-lg text-text-gray max-w-3xl mx-auto">
+                  Nossos agentes de IA atuam como colaboradores digitais autônomos, executando tarefas complexas e tomando decisões inteligentes para otimizar cada setor do seu negócio.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100 hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                    <ShoppingCart className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark">Agente de Vendas</h3>
+                  <p className="text-text-gray mb-4">
+                    Automatiza prospecção, qualificação de leads, follow-ups e fechamento de vendas com inteligência contextual.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-gray">
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Prospecção automática</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Nutrição de leads</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Propostas personalizadas</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100 hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                    <Headphones className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark">Agente de Atendimento</h3>
+                  <p className="text-text-gray mb-4">
+                    Resolve chamados, responde dúvidas e escala problemas complexos automaticamente, 24 horas por dia.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-gray">
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Resolução autônoma</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Multicanal integrado</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Escalação inteligente</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100 hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                    <BarChart3 className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark">Agente de Marketing</h3>
+                  <p className="text-text-gray mb-4">
+                    Cria campanhas, segmenta audiências, otimiza anúncios e gera relatórios de performance automaticamente.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-gray">
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Campanhas automatizadas</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Segmentação inteligente</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Otimização contínua</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100 hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                    <Cog className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark">Agente de Operações</h3>
+                  <p className="text-text-gray mb-4">
+                    Gerencia estoque, logística, pedidos e processos internos com tomada de decisão autônoma.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-gray">
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Gestão de estoque</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Automação logística</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Controle de processos</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100 hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                    <FileText className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark">Agente Financeiro</h3>
+                  <p className="text-text-gray mb-4">
+                    Automatiza cobranças, conciliações, emissão de notas fiscais e relatórios financeiros.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-gray">
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Cobranças automáticas</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Conciliação bancária</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Relatórios em tempo real</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100 hover:shadow-lg transition-shadow">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                    <Users className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark">Agente de RH</h3>
+                  <p className="text-text-gray mb-4">
+                    Automatiza recrutamento, onboarding, controle de ponto e comunicação interna.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-gray">
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Triagem de currículos</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Onboarding automático</li>
+                    <li className="flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Gestão de pessoas</li>
                   </ul>
                 </div>
               </div>
