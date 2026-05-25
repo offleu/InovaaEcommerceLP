@@ -8,7 +8,69 @@ import { Calendar, Tag, ArrowLeft, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import DOMPurify from "dompurify";
 
-interface Article {
+// Import article images
+import lojaVirtualUxImg from "@/assets/blog-loja-virtual-ux.jpg";
+import lojaVirtualAtendimentoImg from "@/assets/blog-loja-virtual-atendimento.jpg";
+import lojaVirtualMarketingImg from "@/assets/blog-loja-virtual-marketing.jpg";
+import lojaVirtualProdutosImg from "@/assets/blog-loja-virtual-produtos.jpg";
+import lojaVirtualDadosImg from "@/assets/blog-loja-virtual-dados.jpg";
+import lojaVirtualParceriasImg from "@/assets/blog-loja-virtual-parcerias.jpg";
+import lojaVirtualTendenciasImg from "@/assets/blog-loja-virtual-tendencias.jpg";
+import lojaVirtualDestaqueCapaImg from "@/assets/blog-loja-virtual-destaque-capa.jpg";
+
+// Map of article slug to cover images
+const coverImages: Record<string, string> = {
+  "diferenciese-o-que-faz-uma-loja-virtual-se-destacar": lojaVirtualDestaqueCapaImg,
+};
+
+// Map of section keywords to images for the "loja virtual" article
+const lojaVirtualImages: Record<string, string> = {
+  "experiência do usuário": lojaVirtualUxImg,
+  "atendimento ao cliente": lojaVirtualAtendimentoImg,
+  "marketing digital": lojaVirtualMarketingImg,
+  "produtos exclusivos": lojaVirtualProdutosImg,
+  "dados e análises": lojaVirtualDadosImg,
+  "parcerias e colaborações": lojaVirtualParceriasImg,
+  "tendências futuras": lojaVirtualTendenciasImg,
+};
+
+// Function to inject images into content based on section headings
+const injectImagesIntoContent = (html: string, slug: string): string => {
+  if (slug !== "diferenciese-o-que-faz-uma-loja-virtual-se-destacar") {
+    return html;
+  }
+
+  let modifiedHtml = html;
+
+  // Inject images after h2 headings
+  Object.entries(lojaVirtualImages).forEach(([keyword, imageSrc]) => {
+    const regex = new RegExp(
+      `(<h2[^>]*>[^<]*${keyword}[^<]*<\\/h2>)`,
+      "gi"
+    );
+    modifiedHtml = modifiedHtml.replace(regex, (match) => {
+      return `${match}<figure class="my-8"><img src="${imageSrc}" alt="${keyword}" class="w-full rounded-xl shadow-lg" loading="lazy" /></figure>`;
+    });
+  });
+
+  return modifiedHtml;
+};
+
+interface DatabaseArticle {
+  id: string;
+  title: string;
+  slug: string;
+  content: string | null;
+  excerpt: string | null;
+  featured_image: string | null;
+  status: string | null;
+  author: string | null;
+  category: string | null;
+  tags: string[] | null;
+  created_at: string;
+}
+
+interface ApiArticle {
   id: number;
   title: string;
   slug: string;
@@ -23,8 +85,10 @@ interface Article {
 interface AirticleResponse {
   projectId: number;
   count: number;
-  items: Article[];
+  items: ApiArticle[];
 }
+
+type Article = DatabaseArticle | ApiArticle;
 
 const BlogPost = () => {
   const location = useLocation();
@@ -39,6 +103,22 @@ const BlogPost = () => {
 
       try {
         setLoading(true);
+        
+        // First, try to fetch from database by slug
+        const { data: dbArticle, error: dbError } = await supabase
+          .from('articles')
+          .select('*')
+          .eq('slug', slug)
+          .eq('status', 'Publicado')
+          .maybeSingle();
+
+        if (dbArticle) {
+          setArticle(dbArticle);
+          setLoading(false);
+          return;
+        }
+
+        // Fallback to API if not found in database
         const { data, error: fnError } = await supabase.functions.invoke<AirticleResponse>('airticle-articles', {
           body: null,
         });
@@ -113,7 +193,35 @@ const BlogPost = () => {
     );
   }
 
-  const sanitizedHtml = DOMPurify.sanitize(article.html);
+  // Get content from either database or API article
+  const getArticleContent = () => {
+    if ('content' in article && article.content) return article.content;
+    if ('html' in article && article.html) return article.html;
+    return '';
+  };
+
+  const getArticleDate = () => {
+    if ('created_at' in article) return article.created_at;
+    if ('createdAt' in article) return article.createdAt;
+    return new Date().toISOString();
+  };
+
+  const getArticleCategory = () => {
+    if ('category' in article && article.category) return article.category;
+    if ('mainKeyword' in article && article.mainKeyword) return article.mainKeyword;
+    return null;
+  };
+
+  const getArticleTags = () => {
+    if ('tags' in article && article.tags) return article.tags;
+    if ('secondaryKeywords' in article && article.secondaryKeywords) return article.secondaryKeywords;
+    return [];
+  };
+
+  const rawHtml = injectImagesIntoContent(getArticleContent(), slug || '');
+  const sanitizedHtml = DOMPurify.sanitize(rawHtml);
+  const category = getArticleCategory();
+  const tags = getArticleTags();
 
   return (
     <PageTransition>
@@ -135,26 +243,38 @@ const BlogPost = () => {
               <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
-                  <span>{formatDate(article.createdAt)}</span>
+                  <span>{formatDate(getArticleDate())}</span>
                 </div>
               </div>
 
-              {(article.mainKeyword || article.secondaryKeywords?.length > 0) && (
+              {(category || tags.length > 0) && (
                 <div className="flex items-center gap-2 flex-wrap">
                   <Tag className="w-4 h-4 text-purple-brand" />
-                  {article.mainKeyword && (
+                  {category && (
                     <span className="text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-brand px-3 py-1 rounded-full">
-                      {article.mainKeyword}
+                      {category}
                     </span>
                   )}
-                  {article.secondaryKeywords?.map((keyword, index) => (
+                  {tags.map((tag, index) => (
                     <span key={index} className="text-sm bg-gray-100 dark:bg-gray-800 text-muted-foreground px-3 py-1 rounded-full">
-                      {keyword}
+                      {tag}
                     </span>
                   ))}
                 </div>
               )}
             </header>
+
+            {/* Cover image */}
+            {(coverImages[slug || ''] || ('featured_image' in article && article.featured_image)) && (
+              <figure className="mb-10">
+                <img 
+                  src={coverImages[slug || ''] || ('featured_image' in article ? article.featured_image : '')} 
+                  alt={article.title} 
+                  className="w-full rounded-2xl shadow-lg object-cover aspect-video"
+                  loading="eager"
+                />
+              </figure>
+            )}
 
             <div 
               className="prose prose-lg dark:prose-invert max-w-none

@@ -1,103 +1,50 @@
-import { Laptop, Package, Palette, ShoppingCart, FileText, Share2, Zap, TrendingUp, Heart } from "lucide-react";
+import { Laptop, ShoppingCart, Zap, GraduationCap, TrendingUp, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 import { InovaaButton } from "./ui/inovaa-button";
 import { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const PackagesSection = () => {
-  const [selectedType, setSelectedType] = useState<"ecommerce" | "landing" | "social">("ecommerce");
+  const [selectedType, setSelectedType] = useState<"ecommerce" | "treinamentos">("ecommerce");
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const packagesByType = {
     ecommerce: [
-      {
-        icon: Laptop,
-        title: "Básico",
-        price: "R$ 1.490,00",
-        description: "Loja virtual completa com até 50 produtos, design responsivo e integração de pagamento."
-      },
-      {
-        icon: ShoppingCart,
-        title: "Profissional",
-        price: "R$ 2.990,00",
-        description: "Loja avançada com produtos ilimitados, sistema de cupons, gestão completa e integrações premium."
-      },
-      {
-        icon: Zap,
-        title: "Premium",
-        price: "R$ 4.990,00",
-        description: "E-commerce completo com IA, automações, app mobile, gestão avançada e suporte prioritário."
-      }
+      { icon: Laptop, title: "Diagnóstico", price: "R$ 1.490,00", description: "Análise completa do seu e-commerce com relatório detalhado de oportunidades, gargalos e plano de ação estratégico." },
+      { icon: ShoppingCart, title: "Consultoria", price: "R$ 2.990,00", description: "Acompanhamento mensal com reuniões estratégicas, implementação de melhorias e monitoramento de KPIs." },
+      { icon: Zap, title: "Transformação", price: "R$ 4.990,00", description: "Consultoria executiva completa com squad dedicado, implementação de processos e gestão de performance." }
     ],
-    landing: [
-      {
-        icon: FileText,
-        title: "Essencial",
-        price: "R$ 890,00",
-        description: "Landing page otimizada para conversão com design profissional e formulário de contato integrado."
-      },
-      {
-        icon: TrendingUp,
-        title: "Avançada",
-        price: "R$ 1.590,00",
-        description: "Landing page com múltiplas seções, animações, integração com CRM e otimização SEO avançada."
-      },
-      {
-        icon: Heart,
-        title: "Completa",
-        price: "R$ 2.490,00",
-        description: "Landing page premium com A/B testing, analytics avançado, chat integrado e automações de marketing."
-      }
-    ],
-    social: [
-      {
-        icon: Share2,
-        title: "Starter",
-        price: "R$ 490,00",
-        description: "Gestão de 1 rede social com 12 posts mensais e design de templates personalizados."
-      },
-      {
-        icon: Palette,
-        title: "Pro",
-        price: "R$ 890,00",
-        description: "Gestão de 2 redes sociais com 20 posts mensais, stories e planejamento estratégico."
-      },
-      {
-        icon: Package,
-        title: "Premium",
-        price: "R$ 1.490,00",
-        description: "Gestão completa de 3 redes sociais com 30 posts, stories, reels e relatórios mensais."
-      }
+    treinamentos: [
+      { icon: TrendingUp, title: "Vendas", price: "R$ 1.290,00", description: "Treinamento em técnicas avançadas de vendas para e-commerce, funil de conversão e atendimento consultivo." },
+      { icon: Settings, title: "Sistemas de Gestão", price: "R$ 2.147,00", description: "Capacitação em ERPs, gestão de estoque, controle financeiro e integração entre sistemas." },
+      { icon: GraduationCap, title: "Plataformas", price: "R$ 1.590,00", description: "Domine Nuvemshop, Tray, Shopify e Yampi com treinamento prático e hands-on." }
     ]
   };
 
-  const typeLabels = {
-    ecommerce: "E-commerce",
-    landing: "Landing Page",
-    social: "Mídias Sociais"
-  };
+  const typeLabels = { ecommerce: "E-commerce", treinamentos: "Treinamentos" };
 
   return (
-    <section id="pacotes" className="py-12 sm:py-16 lg:py-20 bg-gray-50" ref={elementRef}>
+    <section id="pacotes" className="py-16 sm:py-24 bg-card/30" ref={elementRef}>
       <div className="container mx-auto px-4">
-        <div className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-dark mb-4 px-2">
-            Escolha o Pacote Ideal para Seu Negócio
+        <div className={`text-center mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="text-gold text-sm tracking-[0.2em] uppercase font-body block mb-4">Soluções</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Consultoria para Seu{" "}
+            <span className="text-gradient-gold">E-commerce</span>
           </h2>
-          <p className="text-base sm:text-lg text-text-gray max-w-2xl mx-auto mb-8">
-            Selecione o tipo de serviço e encontre o plano perfeito
+          <p className="text-base sm:text-lg text-text-body max-w-2xl mx-auto mb-10 font-body">
+            Selecione a área de atuação e encontre a consultoria ideal
           </p>
 
-          {/* Type Selector */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             {(Object.keys(packagesByType) as Array<keyof typeof packagesByType>).map((type) => (
               <button
                 key={type}
                 onClick={() => setSelectedType(type)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-6 py-3 rounded-sm text-sm tracking-wide transition-all duration-300 font-body uppercase ${
                   selectedType === type
-                    ? "bg-gradient-primary text-white shadow-lg scale-105"
-                    : "bg-white text-text-dark hover:shadow-md"
+                    ? "bg-gold text-background shadow-button"
+                    : "border border-border text-text-body hover:border-gold/30 hover:text-gold"
                 }`}
               >
                 {typeLabels[type]}
@@ -106,45 +53,36 @@ const PackagesSection = () => {
           </div>
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
           {packagesByType[selectedType].map((pkg, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl p-6 sm:p-8 shadow-card hover:shadow-lg transition-all duration-700 hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`bg-card rounded-lg p-8 border border-border/50 hover:border-gold/20 transition-all duration-700 hover:shadow-glow ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="text-center space-y-4 sm:space-y-6">
+              <div className="text-center space-y-6">
                 <div className="flex justify-center">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-primary rounded-full flex items-center justify-center">
-                    <pkg.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-14 h-14 border border-gold/30 rounded-full flex items-center justify-center">
+                    <pkg.icon className="w-6 h-6 text-gold" />
                   </div>
                 </div>
                 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-text-dark mb-2">
-                    {pkg.title}
-                  </h3>
-                  <p className="text-xl sm:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                    A partir de {pkg.price}
-                  </p>
+                  <h3 className="text-xl font-semibold mb-2">{pkg.title}</h3>
+                  <p className="text-2xl font-bold text-gold font-heading">A partir de {pkg.price}</p>
                 </div>
                 
-                <p className="text-sm sm:text-base text-text-gray leading-relaxed">
-                  {pkg.description}
-                </p>
+                <p className="text-sm text-text-body leading-relaxed font-body">{pkg.description}</p>
                 
-                {/* CTA Buttons */}
-                <div className="flex flex-col gap-2 pt-2">
+                <div className="flex flex-col gap-3 pt-2">
                   <InovaaButton size="sm" className="w-full" asChild>
-                    <Link to="/formulario-contato">
-                      Solicitar Orçamento
-                    </Link>
+                    <Link to="/formulario-contato">Solicitar Orçamento</Link>
                   </InovaaButton>
                   <a
                     href="https://wa.me/5514991302496?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20pacote%20de%20e-commerce"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-green-600 hover:text-green-700 font-medium text-center py-2 transition-colors"
+                    className="text-sm text-text-muted hover:text-gold font-medium text-center py-2 transition-colors font-body"
                   >
                     💬 Tirar dúvidas no WhatsApp
                   </a>
@@ -155,13 +93,11 @@ const PackagesSection = () => {
         </div>
         
         <div className="text-center space-y-4">
-          <p className="text-sm text-text-gray">
-            🎁 <strong>Bônus Exclusivo:</strong> Primeiros clientes ganham 15% de desconto!
+          <p className="text-sm text-text-muted font-body">
+            📊 <strong className="text-foreground">Diagnóstico Gratuito:</strong> Agende uma análise inicial sem compromisso!
           </p>
-          <InovaaButton size="lg" asChild>
-            <Link to="/formulario-contato">
-              Criar Minha Loja com Desconto
-            </Link>
+          <InovaaButton size="default" className="w-full sm:w-auto" asChild>
+            <Link to="/formulario-contato">Agendar Meu Diagnóstico</Link>
           </InovaaButton>
         </div>
       </div>

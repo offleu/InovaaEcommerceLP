@@ -5,19 +5,19 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const inovaaButtonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-body tracking-wide uppercase",
   {
     variants: {
       variant: {
-        primary: "bg-gradient-primary text-white shadow-button hover:shadow-lg transition-all duration-300 hover:scale-105",
-        secondary: "bg-gradient-secondary text-white shadow-button hover:shadow-lg transition-all duration-300 hover:scale-105",
-        yellow: "bg-yellow-brand text-white shadow-button hover:shadow-lg transition-all duration-300 hover:scale-105 hover:brightness-110",
-        outline: "border border-purple-brand text-purple-brand bg-transparent hover:bg-purple-brand hover:text-white transition-all duration-300",
+        primary: "bg-gold text-background shadow-button hover:shadow-lg hover:bg-gold-light rounded-sm",
+        secondary: "bg-secondary text-foreground border border-border hover:border-gold/30 hover:text-gold rounded-sm",
+        yellow: "bg-gold-dark text-foreground shadow-button hover:shadow-lg hover:bg-gold rounded-sm",
+        outline: "border border-gold/40 text-gold bg-transparent hover:bg-gold hover:text-background rounded-sm",
       },
       size: {
-        default: "h-12 px-8 py-3 text-base font-semibold",
-        sm: "h-9 px-4 text-sm",
-        lg: "h-14 px-12 py-4 text-lg font-bold",
+        default: "h-12 px-8 py-3 text-sm font-semibold",
+        sm: "h-9 px-5 text-xs",
+        lg: "h-14 px-12 py-4 text-base font-semibold",
         icon: "h-9 w-9",
       },
     },
