@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import Header from "../components/Header";
@@ -9,6 +9,16 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { toast } from "sonner";
 import { trackFormSubmit, trackConversion } from "../utils/tracking";
+
+// SEO Meta Tags
+const updateContactMeta = () => {
+  document.title = "Contato | Agende sua Consultoria E-commerce em Marília SP - Inovaa";
+  
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute("content", "Entre em contato com a Inovaa Consultoria em Marília SP. Agende sua consultoria gratuita para e-commerce, treinamentos ou diagnóstico empresarial. Resposta em até 24h!");
+  }
+};
 
 // Comprehensive validation schema with security measures
 const contactSchema = z.object({
@@ -43,6 +53,10 @@ const FormularioContato = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  useEffect(() => {
+    updateContactMeta();
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -68,7 +82,7 @@ const FormularioContato = () => {
       const validatedData = contactSchema.parse(formData);
       
       // Construct WhatsApp message with sanitized data
-      const mensagem = `Olá! Gostaria de criar minha loja online.
+      const mensagem = `Olá! Gostaria de solicitar um atendimento.
 
 *Dados de contato:*
 • Nome: ${validatedData.nome}
@@ -76,7 +90,7 @@ const FormularioContato = () => {
 • Telefone: ${validatedData.telefone}
 • Nome do Negócio: ${validatedData.nomeNegocio}
 
-Aguardo retorno para mais informações sobre os pacotes disponíveis.`;
+Aguardo retorno para mais informações.`;
 
       const whatsappUrl = `https://api.whatsapp.com/send/?phone=5514991302496&text=${encodeURIComponent(mensagem)}&type=phone_number&app_absent=0`;
       
@@ -118,7 +132,7 @@ Aguardo retorno para mais informações sobre os pacotes disponíveis.`;
             {/* Header da página */}
             <div className="text-center mb-8">
               <h1 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
-                Solicite sua Loja Online
+                Solicite um Atendimento
               </h1>
               <p className="text-lg text-text-gray">
                 Preencha os dados abaixo e entraremos em contato via WhatsApp para apresentar as melhores soluções para seu negócio.

@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { InovaaButton } from "@/components/ui/inovaa-button";
-import { Bot, Zap, MessageSquare, Settings, Brain, Workflow } from "lucide-react";
+import { Bot, Zap, MessageSquare, Settings, Brain, Workflow, Cpu, Users, ShoppingCart, BarChart3, Headphones, FileText, Cog } from "lucide-react";
+import { motion } from "framer-motion";
 
 const FerramentasIA = () => {
   return (
@@ -139,6 +140,62 @@ const FerramentasIA = () => {
                     <li>• Integração de sistemas</li>
                   </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Agentes de IA */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <motion.div 
+                className="text-center mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text-dark">
+                  Agentes de IA para Automatizar Setores
+                </h2>
+                <p className="text-lg text-text-gray max-w-3xl mx-auto">
+                  Nossos agentes de IA atuam como colaboradores digitais autônomos, executando tarefas complexas e tomando decisões inteligentes para otimizar cada setor do seu negócio.
+                </p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  { icon: ShoppingCart, title: "Agente de Vendas", desc: "Automatiza prospecção, qualificação de leads, follow-ups e fechamento de vendas com inteligência contextual.", items: ["Prospecção automática", "Nutrição de leads", "Propostas personalizadas"] },
+                  { icon: Headphones, title: "Agente de Atendimento", desc: "Resolve chamados, responde dúvidas e escala problemas complexos automaticamente, 24 horas por dia.", items: ["Resolução autônoma", "Multicanal integrado", "Escalação inteligente"] },
+                  { icon: BarChart3, title: "Agente de Marketing", desc: "Cria campanhas, segmenta audiências, otimiza anúncios e gera relatórios de performance automaticamente.", items: ["Campanhas automatizadas", "Segmentação inteligente", "Otimização contínua"] },
+                  { icon: Cog, title: "Agente de Operações", desc: "Gerencia estoque, logística, pedidos e processos internos com tomada de decisão autônoma.", items: ["Gestão de estoque", "Automação logística", "Controle de processos"] },
+                  { icon: FileText, title: "Agente Financeiro", desc: "Automatiza cobranças, conciliações, emissão de notas fiscais e relatórios financeiros.", items: ["Cobranças automáticas", "Conciliação bancária", "Relatórios em tempo real"] },
+                  { icon: Users, title: "Agente de RH", desc: "Automatiza recrutamento, onboarding, controle de ponto e comunicação interna.", items: ["Triagem de currículos", "Onboarding automático", "Gestão de pessoas"] },
+                ].map((agent, index) => (
+                  <motion.div
+                    key={agent.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    className="bg-white rounded-xl p-8 shadow-elegant border border-gray-100"
+                  >
+                    <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                      <agent.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-text-dark">{agent.title}</h3>
+                    <p className="text-text-gray mb-4">{agent.desc}</p>
+                    <ul className="space-y-2 text-sm text-text-gray">
+                      {agent.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <Zap className="w-4 h-4 text-primary" /> {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>

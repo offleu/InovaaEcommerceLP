@@ -14,10 +14,13 @@ import NotFound from "./pages/NotFound";
 
 import CriacaoSiteEcommerce from "./pages/CriacaoSiteEcommerce";
 import GestaoEcommerce from "./pages/GestaoEcommerce";
-import MarketingDigital from "./pages/MarketingDigital";
-import SocialMedia from "./pages/SocialMedia";
+import Treinamentos from "./pages/Treinamentos";
 import FerramentasIA from "./pages/FerramentasIA";
 import Microservicos from "./pages/Microservicos";
+
+import AdminLogin from "./pages/AdminLogin";
+import AdminArtigos from "./pages/AdminArtigos";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -37,17 +40,17 @@ const App = () => {
 
             {/* Blog */}
             <Route path="/blog" element={<Blog />} />
-            {/* Rota dinâmica para artigos via slug */}
             <Route path="/blog/:slug" element={<BlogPost />} />
 
-            {/* Artigos fixos opcionais */}
-            <Route path="/blog/como-criar-ecommerce-sucesso-2025" element={<ArtigoEcommerce />} />
+            {/* Admin */}
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/artigos" element={<AdminArtigos />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
             {/* Serviços */}
             <Route path="/servicos/criacao-site-ecommerce" element={<CriacaoSiteEcommerce />} />
             <Route path="/servicos/gestao-ecommerce" element={<GestaoEcommerce />} />
-            <Route path="/servicos/marketing-digital" element={<MarketingDigital />} />
-            <Route path="/servicos/social-media" element={<SocialMedia />} />
+            <Route path="/servicos/treinamentos" element={<Treinamentos />} />
             <Route path="/servicos/ferramentas-ia" element={<FerramentasIA />} />
             <Route path="/servicos/microservicos" element={<Microservicos />} />
 
@@ -61,3 +64,4 @@ const App = () => {
 };
 
 export default App;
+
