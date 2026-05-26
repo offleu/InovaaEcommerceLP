@@ -17,11 +17,11 @@ import Footer from "../components/Footer";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Consultoria E-commerce em Marília SP | Treinamentos e Gestão - Inovaa";
+    document.title = "Inovaa Tech | Automações, IA e Sistemas para E-commerce";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Consultoria especializada em e-commerce em Marília SP. Diagnóstico estratégico, treinamentos em vendas, sistemas de gestão e plataformas. Agende sua consultoria gratuita!");
+      metaDescription.setAttribute("content", "Tecnologia para e-commerce: automações, agentes de IA, CRM personalizado, integradores e apps sob medida para reduzir custos e multiplicar produtividade.");
     }
   }, []);
   return (

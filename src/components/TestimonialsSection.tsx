@@ -5,12 +5,12 @@ const TestimonialsSection = () => {
   const { elementRef, isVisible } = useScrollAnimation();
 
   const testimonials = [
-    { name: "Carla Mendes", role: "Proprietária", company: "Bella Moda Feminina", city: "Marília, SP", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face", rating: 5, text: "A consultoria da Inovaa transformou nosso e-commerce. Em 6 meses, triplicamos as vendas online. O diagnóstico inicial foi certeiro e o acompanhamento mensal fez toda a diferença." },
-    { name: "Roberto Silva", role: "Diretor Comercial", company: "Casa & Decoração", city: "Assis, SP", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face", rating: 5, text: "O treinamento em sistemas de gestão capacitou toda nossa equipe. Hoje operamos com muito mais eficiência e o controle de estoque ficou impecável. Recomendo demais!" },
-    { name: "Fernanda Costa", role: "CEO", company: "Natural Fit Suplementos", city: "Marília, SP", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face", rating: 5, text: "Migramos para a Nuvemshop com a ajuda da Inovaa e foi a melhor decisão. O treinamento na plataforma nos deu autonomia total para gerenciar a loja." },
-    { name: "Marcos Oliveira", role: "Fundador", company: "TechParts Informática", city: "Tupã, SP", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face", rating: 5, text: "O diagnóstico estratégico identificou gargalos que nem imaginávamos. Com as recomendações implementadas, nosso ticket médio aumentou 40% em apenas 3 meses." },
-    { name: "Juliana Ferreira", role: "Gerente de E-commerce", company: "Doce Encanto Confeitaria", city: "Ourinhos, SP", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face", rating: 5, text: "A Inovaa nos ajudou a estruturar todo o processo de vendas online. O treinamento em vendas para e-commerce foi excepcional. Nossa equipe agora converte muito mais!" },
-    { name: "Eduardo Santos", role: "Proprietário", company: "Agro Center Máquinas", city: "Garça, SP", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face", rating: 5, text: "Atendimento próximo e personalizado. Por serem da região, entendem as particularidades do nosso mercado. A consultoria foi fundamental para nossa expansão digital." }
+    { name: "Carla Mendes", role: "Proprietária", company: "Bella Moda Feminina", city: "Marília, SP", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face", rating: 5, text: "Automatizamos o pós-venda inteiro com o agente de IA da Inovaa. Reduzimos 60% do tempo da equipe respondendo o mesmo no WhatsApp." },
+    { name: "Roberto Silva", role: "Diretor de Operações", company: "Casa & Decoração", city: "Assis, SP", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face", rating: 5, text: "O integrador construído pela Inovaa conecta nossos 4 marketplaces, ERP e transportadora. Eliminamos planilhas e erros de estoque." },
+    { name: "Fernanda Costa", role: "CEO", company: "Natural Fit Suplementos", city: "Marília, SP", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face", rating: 5, text: "O CRM personalizado virou o coração da operação. Hoje todo time vê pedido, cliente e custo no mesmo lugar — em tempo real." },
+    { name: "Marcos Oliveira", role: "Fundador", company: "TechParts Informática", city: "Tupã, SP", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face", rating: 5, text: "Automatizamos o processo de cotação e emissão de pedido. O que levava 2 horas por dia agora roda sozinho em segundo plano." },
+    { name: "Juliana Ferreira", role: "Gerente de E-commerce", company: "Doce Encanto Confeitaria", city: "Ourinhos, SP", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face", rating: 5, text: "O app interno desenvolvido pela Inovaa permite que a produção registre tudo pelo celular. Acabou o gargalo de digitação." },
+    { name: "Eduardo Santos", role: "Proprietário", company: "Agro Center Máquinas", city: "Garça, SP", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face", rating: 5, text: "Time técnico que entende de operação real. Entregaram automações que cortaram custo fixo e ainda escalam com o crescimento." }
   ];
 
   return (
@@ -20,12 +20,12 @@ const TestimonialsSection = () => {
           ref={elementRef}
           className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <span className="text-gold text-sm tracking-[0.2em] uppercase font-body block mb-4">Depoimentos</span>
+          <span className="text-primary text-xs tracking-[0.25em] uppercase font-mono block mb-4">Cases</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            O Que Nossos Clientes <span className="text-gradient-gold">Dizem</span>
+            E-commerces que <span className="text-gradient-gold">automatizaram com a gente</span>
           </h2>
           <p className="text-text-body text-lg max-w-2xl mx-auto font-body">
-            Empresas de Marília e região que transformaram seus negócios
+            Operações reais que cortaram custo e ganharam produtividade
           </p>
           <div className="divider-gold w-24 mx-auto mt-6" />
         </div>
@@ -68,13 +68,13 @@ const TestimonialsSection = () => {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {[
-            { value: "200+", label: "Clientes Atendidos" },
-            { value: "4.9", label: "Avaliação Média" },
-            { value: "15+", label: "Cidades Atendidas" },
-            { value: "98%", label: "Taxa de Satisfação" },
+            { value: "200+", label: "Operações automatizadas" },
+            { value: "-38%", label: "Custo médio reduzido" },
+            { value: "4.2x", label: "Ganho de produtividade" },
+            { value: "24/7", label: "Operação contínua" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <p className="text-3xl sm:text-4xl font-bold text-gold font-heading">{stat.value}</p>
+              <p className="text-3xl sm:text-4xl font-bold text-gradient-gold font-heading">{stat.value}</p>
               <p className="text-sm text-text-muted mt-1 font-body">{stat.label}</p>
             </div>
           ))}
