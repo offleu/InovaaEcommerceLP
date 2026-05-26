@@ -58,11 +58,11 @@ const Header = () => {
   };
 
   const services = [
-    { name: "Consultoria Estratégica", path: "/servicos/criacao-site-ecommerce" },
-    { name: "Gestão de E-commerce", path: "/servicos/gestao-ecommerce" },
-    { name: "Treinamentos", path: "/servicos/treinamentos" },
-    { name: "Automação e IA", path: "/servicos/ferramentas-ia" },
-    { name: "Integrações e Sistemas", path: "/servicos/microservicos" }
+    { name: "Automações & Agentes de IA", path: "/servicos/ferramentas-ia" },
+    { name: "CRM & Sistemas Personalizados", path: "/servicos/microservicos" },
+    { name: "Integrações & APIs", path: "/servicos/gestao-ecommerce" },
+    { name: "Apps & Desenvolvimento", path: "/servicos/criacao-site-ecommerce" },
+    { name: "Treinamentos Técnicos", path: "/servicos/treinamentos" }
   ];
 
   return (

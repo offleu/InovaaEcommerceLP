@@ -12,11 +12,11 @@ const Footer = () => {
   ];
 
   const servicos = [
-    { label: "Criação de E-commerce", href: "/servicos/criacao-site-ecommerce" },
-    { label: "Gestão de E-commerce", href: "/servicos/gestao-ecommerce" },
-    { label: "Treinamentos", href: "/servicos/treinamentos" },
-    { label: "Ferramentas de IA", href: "/servicos/ferramentas-ia" },
-    { label: "Microserviços", href: "/servicos/microservicos" },
+    { label: "Automações & Agentes de IA", href: "/servicos/ferramentas-ia" },
+    { label: "CRM & Sistemas Personalizados", href: "/servicos/microservicos" },
+    { label: "Integrações & APIs", href: "/servicos/gestao-ecommerce" },
+    { label: "Apps & Desenvolvimento", href: "/servicos/criacao-site-ecommerce" },
+    { label: "Treinamentos Técnicos", href: "/servicos/treinamentos" },
   ];
 
   const atendimento = [
@@ -39,10 +39,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-6">
             <Link to="/">
-              <img src={inovaaLogo} alt="Inovaa Consultoria para E-commerce" className="h-11 w-auto brightness-110" />
+              <img src={inovaaLogo} alt="Inovaa Tech para E-commerce" className="h-11 w-auto brightness-110" />
             </Link>
             <p className="text-sm text-text-body leading-relaxed max-w-sm font-body">
-              Consultoria estratégica para e-commerces de alta performance. Transformamos operações digitais com inteligência, tecnologia e resultados reais.
+              Tecnologia para e-commerce: automações, agentes de IA, CRMs personalizados, integradores e apps que reduzem custos e multiplicam produtividade.
             </p>
 
             <div className="flex items-center gap-3">
@@ -111,10 +111,10 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-text-muted text-center sm:text-left space-y-0.5 font-body">
-            <p>© 2025 Inovaa Consultoria Empresarial. Todos os direitos reservados.</p>
+            <p>© 2025 Inovaa Tech. Todos os direitos reservados.</p>
             <p><span className="font-medium text-text-body">CNPJ:</span> 59.046.070/0001-23</p>
           </div>
-          <p className="text-xs text-text-muted font-body">Especialistas em e-commerce de alta performance</p>
+          <p className="text-xs text-text-muted font-mono">tecnologia · automação · produtividade</p>
         </div>
       </div>
     </footer>
