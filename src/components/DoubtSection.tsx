@@ -11,10 +11,6 @@ const DoubtSection = () => {
       <div className="absolute inset-0 mesh-bg opacity-50" />
       <div className="container mx-auto px-4 relative">
         <div className={`max-w-4xl mx-auto text-center space-y-7 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-1.5 bg-primary/5 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-xs font-mono text-primary uppercase tracking-wider">Próximo passo</span>
-          </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             Pronto para tirar o trabalho repetitivo do seu time?{" "}

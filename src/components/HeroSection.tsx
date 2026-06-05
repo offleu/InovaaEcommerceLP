@@ -13,10 +13,6 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 py-20 lg:py-0 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
         {/* LEFT — Copy */}
         <div className="space-y-7 sm:space-y-8">
-          <div className="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-1.5 bg-primary/5 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-xs font-medium text-primary tracking-wide font-mono uppercase">Tecnologia para E-commerce</span>
-          </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight">
             Menos custo.<br />
@@ -31,20 +27,6 @@ const HeroSection = () => {
             para reduzir custos operacionais e escalar seu e-commerce sem aumentar o time.
           </p>
 
-          {/* Quick chips */}
-          <div className="flex flex-wrap gap-2">
-            {[
-              { icon: Bot, label: "Agentes de IA" },
-              { icon: Workflow, label: "Automações" },
-              { icon: Cpu, label: "CRM Personalizado" },
-              { icon: Zap, label: "Integrações" },
-            ].map((c) => (
-              <div key={c.label} className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-card/60 backdrop-blur-sm">
-                <c.icon className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-medium text-text-body font-body">{c.label}</span>
-              </div>
-            ))}
-          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
             <InovaaButton size="lg" className="group w-full sm:w-auto" asChild>

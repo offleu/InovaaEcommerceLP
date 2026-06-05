@@ -10,7 +10,7 @@ const PlatformsSection = () => {
     <section className="py-12 sm:py-16 bg-background border-t border-border/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <span className="text-primary text-xs tracking-[0.25em] uppercase font-mono block mb-3">Stack</span>
+          
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
             Plataformas, ERPs e APIs que integramos
           </h2>

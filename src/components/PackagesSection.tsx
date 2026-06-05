@@ -61,9 +61,6 @@ const PackagesSection = () => {
               className={`group relative rounded-2xl p-7 border border-border bg-card/60 backdrop-blur-sm hover:border-primary/40 transition-all duration-700 hover:shadow-glow hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 120}ms` }}
             >
-              <div className="absolute -top-3 left-7 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
-                Stack {String(index + 1).padStart(2, '0')}
-              </div>
 
               <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <pkg.icon className="w-5 h-5 text-primary" />
