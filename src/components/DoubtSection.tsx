@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { InovaaButton } from "./ui/inovaa-button";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import { Sparkles } from "lucide-react";
+import { BadgeDollarSign } from "lucide-react";
 
 const DoubtSection = () => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.3 });
