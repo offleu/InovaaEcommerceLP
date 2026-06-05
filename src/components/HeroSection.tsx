@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { InovaaButton } from "./ui/inovaa-button";
-import { ArrowRight, Sparkles, Bot, Workflow, BarChart3, Zap, Cpu, Activity } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, Bot, Workflow, BarChart3, Zap, Cpu, Activity } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -132,7 +132,7 @@ const HeroSection = () => {
           {/* Floating mini card */}
           <div className="absolute -bottom-6 -left-6 hidden sm:block glass-card rounded-xl p-3 shadow-card float">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center"><Sparkles className="w-4 h-4 text-primary" /></div>
+              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center"><BadgeDollarSign className="w-4 h-4 text-primary" /></div>
               <div>
                 <div className="text-xs font-semibold font-body">Agente IA ativo</div>
                 <div className="text-[10px] text-text-muted font-mono">processou 42 pedidos</div>
