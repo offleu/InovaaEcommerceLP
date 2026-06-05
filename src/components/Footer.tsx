@@ -39,7 +39,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-6">
             <Link to="/">
-              <img src={inovaaLogo} alt="Inovaa Tech para E-commerce" className="h-11 w-auto brightness-110" />
+              <img src={inovaaLogo} alt="Inovaa Tech para E-commerce" className="h-11 w-auto" />
             </Link>
             <p className="text-sm text-text-body leading-relaxed max-w-sm font-body">
               Tecnologia para e-commerce: automações, agentes de IA, CRMs personalizados, integradores e apps que reduzem custos e multiplicam produtividade.
