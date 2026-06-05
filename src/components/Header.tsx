@@ -78,7 +78,7 @@ const Header = () => {
               <img 
                 src={inovaaLogo} 
                 alt="Inovaa Consultoria - Especialistas em E-commerce" 
-                className="h-7 sm:h-9 w-auto brightness-110"
+                className="h-7 sm:h-9 w-auto"
               />
             </Link>
           </div>
